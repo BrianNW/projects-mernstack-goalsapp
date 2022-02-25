@@ -6,7 +6,9 @@ const app = express()
 
 // 1st argument for url, 2nd argument is a function
 app.get('/api/goals',(req,res) => {
-    res.send('Get goals')
+
+    res.json({message: 'Get goals'})
+    // res.send('Get goals')
 } )
 
 app.listen(port, () => console.log(`server on port ${port}`))
