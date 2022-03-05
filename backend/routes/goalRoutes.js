@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const {getGoals} = require('../controllers/goalController')
 
 //all you need for the .get is the /, as api/goals is already specified in server.js file
 //GET A GOAL
-router.get('/',(req,res) => {
-    res.status(200).json({message: 'Get goals'})
-} )
+router.get('/', getGoals)
 
 //CREATE A GOAL
 router.post('/',(req,res) => {
