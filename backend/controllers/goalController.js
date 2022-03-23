@@ -6,7 +6,12 @@ const Goal = require('../models/goalModel')
 // @route   GET /api/goals
 // @access  Private
 const getGoals = asyncHandler(async(req, res) => {
-     res.status(200).json({message: 'Get goals'})   
+    
+    // mongodb await find function to get all goals (return it below)
+    const goals = await Goal.find()
+
+    //return a json of goals from the database
+     res.status(200).json(goals)   
 })
 
 // @desc    Set Goal
