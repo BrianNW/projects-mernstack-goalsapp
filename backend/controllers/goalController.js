@@ -36,7 +36,21 @@ const setGoal = asyncHandler(async (req, res) => {
 // @route   PUT /api/goals/:id
 // @access  Private
 const updateGoal = asyncHandler(async (req, res) => {
-    res.status(200).json({message: `Update goal ${req.params.id}`})
+
+    // get goal we're trying to update
+    const goal = await Goal.findById(req.params.id)
+
+    // then check to make sure if we have it
+    if(!goal) {
+        res.status(400)
+        throw new Error('Goal not found')
+    }
+
+    // pass the updated goal into const using Mongodo find function
+    const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {new: true})
+
+    res.status(200).json(updatedGoal)
+    // res.status(200).json({message: `Update goal ${req.params.id}`})
     
 })
 
