@@ -45,10 +45,8 @@ const updateGoal = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Goal not found')
     }
-
     // pass the updated goal into const using Mongodo find function
     const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {new: true})
-
     res.status(200).json(updatedGoal)
     // res.status(200).json({message: `Update goal ${req.params.id}`})
     
@@ -58,7 +56,20 @@ const updateGoal = asyncHandler(async (req, res) => {
 // @route   DELETE /api/goals/:id
 // @access  Private
 const deleteGoal = asyncHandler(async (req, res) => {
-    res.status(200).json({message: `Deleted goal ${req.params.id}`})
+
+    // get goal we want to delete
+    const goal = await Goal.findById(req.params.id)
+
+    // if not exists, throw error
+    if(!goal) {
+        res.status(400)
+        throw new Error('Goal not found')
+    }
+    // no need to assign to a variable for delete as theres no reason to save it
+    await goal.remove();
+    
+    res.status(200).json({id: req.params.id})
+    //OLD// res.status(200).json({message: `Deleted goal ${req.params.id}`})
     
 })
 
