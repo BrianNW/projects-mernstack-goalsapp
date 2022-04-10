@@ -3,6 +3,7 @@
 // @route   POST api/users/:id
 // @access  Public
 const registerUser = (req, res) => {
+    // test with json and Postman
     res.json({message: 'Register User'})
 }
 
@@ -10,6 +11,7 @@ const registerUser = (req, res) => {
 // @route   POST api/users/login
 // @access  Public
 const loginUser = (req, res) => {
+    // test with json and Postman
     res.json({message: 'Login User'})
 }
 
@@ -17,6 +19,7 @@ const loginUser = (req, res) => {
 // @route   GET api/users/me
 // @access  Public
 const getMe = (req, res) => {
+    // test with json and Postman
     res.json({message: 'Display user data'})
 }
 
