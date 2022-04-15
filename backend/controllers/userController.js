@@ -7,9 +7,21 @@ const User = require('../models/userModel')
 // @route   POST api/users/:id
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
+    // add the new user variables from the request's body
+    const { name, email, password } = req.body;
+
+    // validation
+    if(!name || !email || !password) {
+        // bad request
+        res.status(400)
+        // throw error message
+        throw new Error('Please add all fields')
+    } 
+
     // test with json and Postman
     res.json({message: 'Register User'})
 })
+
 
 // @desc    Authenticate a user
 // @route   POST api/users/login
@@ -28,3 +40,4 @@ const getMe = asyncHandler(async (req, res) => {
 })
 
 module.exports = { registerUser, loginUser,getMe }
+
