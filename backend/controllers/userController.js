@@ -26,6 +26,10 @@ const registerUser = asyncHandler(async (req, res) => {
         throw Error('User already exists')
     }
 
+    // Hash Password
+    const salt = await bcrypt.genSalt(10)
+    const hashedPass = await bcrypt.hash(password, salt)
+
     // test with json and Postman
     res.json({message: 'Register User'})
 })
