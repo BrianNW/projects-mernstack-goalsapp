@@ -18,6 +18,14 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error('Please add all fields')
     } 
 
+    // Check if user exists (using the user Model's findOne method) by checking email
+    const userExists = await User.findOne({email})
+
+    if(userExists) {
+        res.status(400)
+        throw Error('User already exists')
+    }
+
     // test with json and Postman
     res.json({message: 'Register User'})
 })
