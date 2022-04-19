@@ -88,5 +88,12 @@ const getMe = asyncHandler(async (req, res) => {
     res.json({message: 'Display user data'})
 })
 
+// Generate JWT that takes in the id and uses the jwt package's sign method which takes in the payload(data i.e id) and secret
+const generateToken = (id) => {
+    return jwt.sign({id},  process.env.JWT_SECRET, {
+        expiresIn: '30d',
+    });
+}
+
 module.exports = { registerUser, loginUser,getMe }
 
