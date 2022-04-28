@@ -86,8 +86,17 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route   GET api/users/me
 // @access  Private
 const getMe = asyncHandler(async (req, res) => {
+    // return logged in user date - destructure this from the user model
+    const {_id, name, email} = await User.findById(req.user.id)
+
+    res.status(200).json({
+        id: _id,
+        name: name,
+        email: email,
+    })
+
     // test with json and Postman
-    res.json({message: 'Display user data'})
+    // res.json({message: 'Display user data'})
 })
 
 // Generate JWT that takes in the id and uses the jwt package's sign method which takes in the payload(data i.e id) and secret
