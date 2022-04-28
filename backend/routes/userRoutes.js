@@ -8,7 +8,7 @@ const {protect} =  require('../middleware/authMiddleware')
 router.post('/', registerUser)
 router.post('/login', loginUser)
 
-//apply import auth token protection
+//apply import auth token protection as a second argument
 router.get('/me', protect, getMe)
 
 module.exports = router
