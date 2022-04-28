@@ -15,7 +15,7 @@ const protect = asyncHandler(async(req, res, next) => {
             // Verify token
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
-            // Get user from the token
+            // Get user from the token - sets the user to req.user below
             req.user = await User.findById(decoded.id).select('-password')
 
             // call next piece of middleware
