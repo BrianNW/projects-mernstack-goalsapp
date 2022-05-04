@@ -8,7 +8,7 @@ const Goal = require('../models/goalModel')
 const getGoals = asyncHandler(async(req, res) => {
     
     // mongodb await find function to get all goals (return it below)
-    const goals = await Goal.find()
+    const goals = await Goal.find({ user: req.user.id})
 
     //return a json of goals from the database
      res.status(200).json(goals)   
