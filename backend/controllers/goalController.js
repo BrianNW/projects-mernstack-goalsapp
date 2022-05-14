@@ -51,11 +51,13 @@ const updateGoal = asyncHandler(async (req, res) => {
     // Get user
     const user = await User.findById(req.user.id)
 
+    // Check if user exists
     if(!user){        
         res.status(401)
         throw new Error('User not found')
     }
 
+    // // Check if user is authorized
     if(goal.user.toString() !== user.id){
         res.status(401)
         throw new Error('User not authorized')
