@@ -51,6 +51,11 @@ const updateGoal = asyncHandler(async (req, res) => {
     // Get user
     const user = await User.findById(req.user.id)
 
+    if(!user){        
+        res.status(401)
+        throw new Error('User not found')
+    }
+
     // pass the updated goal into const variable using Mongodb find function
     const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {new: true})
     res.status(200).json(updatedGoal)
