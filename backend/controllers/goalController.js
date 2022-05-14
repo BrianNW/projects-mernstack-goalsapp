@@ -56,6 +56,11 @@ const updateGoal = asyncHandler(async (req, res) => {
         throw new Error('User not found')
     }
 
+    if(goal.user.toString() !== user.id){
+        res.status(401)
+        throw new Error('User not authorized')
+    }
+
     // pass the updated goal into const variable using Mongodb find function
     const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {new: true})
     res.status(200).json(updatedGoal)
