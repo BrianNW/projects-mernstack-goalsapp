@@ -83,7 +83,23 @@ const deleteGoal = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Goal not found')
     }
-    // no need to assign to a variable for delete as theres no reason to save it
+
+    // Get user
+    const user = await User.findById(req.user.id)
+
+    // Check if user exists
+    if(!user){        
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    // // Check if user is authorized
+    if(goal.user.toString() !== user.id){
+        res.status(401)
+        throw new Error('User not authorized')
+    }
+
+        // no need to assign to a variable for delete as theres no reason to save it
     await goal.remove();
     
     res.status(200).json({id: req.params.id})
