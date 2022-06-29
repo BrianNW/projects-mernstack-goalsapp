@@ -5,7 +5,7 @@ function App() {
     <>
     <Router>
       <div className="container">
-        <h1> My App</h1>
+        <Routes></Routes>
       
       </div>
     </Router>
