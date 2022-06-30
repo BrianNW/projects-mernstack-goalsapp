@@ -18,7 +18,6 @@ function Header() {
           <FaUser /> Register
         </Link>
       </li>
-      </li>
     </ul>
     </header>
   )
