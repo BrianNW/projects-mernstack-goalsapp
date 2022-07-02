@@ -10,6 +10,8 @@ function Register() {
 
   })
 
+  const {name, email, password, password2} = formData;
+
   return (
     <div>Register</div>
   )
