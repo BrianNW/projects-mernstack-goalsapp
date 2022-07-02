@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 
 function Register() {
-
+  // setup useState
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,6 +10,7 @@ function Register() {
 
   })
 
+  // Destructure form data
   const {name, email, password, password2} = formData;
 
   return (
