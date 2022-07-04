@@ -10,11 +10,15 @@ function Register() {
 
   })
 
-  // Destructure form data
+  // Destructure form data fields
   const {name, email, password, password2} = formData;
 
   return (
-    <div>Register</div>
+    <section className="heading">
+      <h1>
+        
+      </h1>
+       </section>
   )
 }
 
