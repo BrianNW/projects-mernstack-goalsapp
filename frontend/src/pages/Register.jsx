@@ -19,6 +19,7 @@ function Register() {
       <h1>
         <FaUser /> Register
       </h1>
+      <p>Please create an account</p>
        </section>
   )
 }
