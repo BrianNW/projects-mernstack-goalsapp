@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import {FaUser} from 'react-icons/fa'
 
 function Register() {
   // setup useState
@@ -16,7 +17,7 @@ function Register() {
   return (
     <section className="heading">
       <h1>
-        
+
       </h1>
        </section>
   )
