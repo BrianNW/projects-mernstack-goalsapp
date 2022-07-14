@@ -26,7 +26,7 @@ function Register() {
       <section className="form">
         <form>
 
-        
+        <input type="text" className="form-control" id="name" name="name" value={name} placeholder="Enter your name" onChange={onChange}/>
         
         </form>
       </section>
