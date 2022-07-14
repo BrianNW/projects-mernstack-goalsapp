@@ -14,6 +14,9 @@ function Register() {
   // Destructure form data fields
   const {name, email, password, password2} = formData;
 
+  // Add onChange function for input below
+  const onChange = () => {}
+
   return (
     <>
       <section className="heading">
