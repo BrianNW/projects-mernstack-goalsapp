@@ -5,15 +5,12 @@ import {FaSignInAlt} from 'react-icons/fa'
 function Login() {
   // setup useState
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
-    password: '',
-    password2: ''
-
+    password: ''
   })
 
   // Destructure form data fields
-  const {name, email, password, password2} = formData;
+  const {email, password} = formData;
 
   // Add onChange function for input below
   // This allows you to type into the text fields
@@ -41,17 +38,7 @@ function Login() {
       </section>
 
       <section className="form">
-        <form onSubmit="{onSubmit}">
-          <div className="form-group">
-            <input 
-              type="text" 
-              className="form-control" 
-              id="name" 
-              name="name" 
-              value={name} 
-              placeholder="Enter your name" onChange={onChange}
-            />     
-          </div>
+        <form onSubmit="{onSubmit}">          
 
           <div className="form-group">
             <input 
@@ -73,21 +60,6 @@ function Login() {
               value={password} 
               placeholder="Enter your password" onChange={onChange}
             />     
-          </div>
-
-          <div className="form-group">
-            <input 
-              type="password" 
-              className="form-control" 
-              id="password2" 
-              name="password2" 
-              value={password} 
-              placeholder="Confirm your password" onChange={onChange}
-            />  
-
-            <div className="form-group">
-              <button type="submit" class="btn btn-block">Submit</button>
-            </div>   
           </div>
             
         </form>
