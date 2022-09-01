@@ -16,10 +16,13 @@ function Register() {
   const {name, email, password, password2} = formData;
 
   // Add onChange function for input below
+  // This allows you to type into the text fields
   const onChange = (e) => {
     // set form data to an object
     setFormData((prevState) => ({
+      // spread operator across the previous state, as we want the other fields
       ...prevState,
+      //get the key by whatever the name value is
       [e.target.name]: e.target.value,
     }))
   }
