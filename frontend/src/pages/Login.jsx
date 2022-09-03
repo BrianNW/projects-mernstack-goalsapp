@@ -59,7 +59,10 @@ function Login() {
               name="password" 
               value={password} 
               placeholder="Enter your password" onChange={onChange}
-            />     
+            />
+            <div className="form-group">
+              <button type="submit" class="btn btn-block">Submit</button>
+            </div>        
           </div>
             
         </form>
