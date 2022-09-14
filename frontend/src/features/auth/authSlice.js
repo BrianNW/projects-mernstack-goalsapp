@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 // Grab JWT and save to local storage
 
-// Get user from localStorage. Use .parse to read from JSON string to object
+// Get user from localStorage. LocalStorage can only have strings, so use .parse() to read from JSON string to object
 const user = JSON.parse()
 
 
