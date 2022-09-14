@@ -8,8 +8,9 @@ const user = JSON.parse(localStorage.getItem('user'))
 
 
 // setup object
+// Check if user is in localstorage and if there is use it. Else use null
 const initialState = {
-    user: null,
+    user: user ? user : null,
     isError: false,
     isSuccess: false,
     isLoading: false,
