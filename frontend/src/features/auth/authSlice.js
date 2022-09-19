@@ -17,7 +17,7 @@ const initialState = {
     message: ''
 }
 
-
+// Redux auth slice - reset states above  during initial state
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
